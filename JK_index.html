@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
 </head>
 <body>
-    
-    <div class="weather" id="weather"></div>
-    <div>test</div>
-    <script src="JK_index_script.js">
-        
-
-    </script>
-    <script src="JK_index_script2.js"></script>
+ <div class="container">
+ <div class="weather" id="weather"></div>
+ <input type="text" id="city" placeholder="Enter City">
+ <button id="btn">Get Weather</button>
+ </div>
+ <script>
+ let btn = document.getElementById('btn');
+ // click on button and call getWeather function
+ btn.addEventListener('click', getWeather);
+ function getWeather() {
+ let city = document.getElementById("city").value;
+ let weather = document.getElementById("weather");
+ let url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + city + "?unitGroup=metric&include=current&key=P9J7ZGZ9SBGSZQTDBMT86WNN3&contentType=json";
+ fetch(url)
+ .then(response => response.json())
+ .then(data => {
+ console.log(data);
+ weather.innerHTML =`
+ <p>Location: ${data.resolvedAddress}</p>
+ <p>Temperature: ${data.currentConditions.temp}°C</p>
+ <p>Current conditions: ${data.currentConditions.conditions}</p>`;
+ }).catch(
+ err => {
+ alert("Wrong city name");
+ console.log(err)
+ });
+ }
+ </script>
 </body>
 </html>

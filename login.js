@@ -14,6 +14,8 @@
         
         localStorage.setItem('loginObject', JSON.stringify(loginObject));
         window.location.href = "JK_index.html";
+
+        
         });
 
 
