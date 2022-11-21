@@ -1,0 +1,28 @@
+.images {
+   width: 100%;
+}
+
+#degrees {
+   font-size: 4rem;
+}
+
+#place {
+   font-size: 4rem;
+}
+
+#welcome {
+   font-size: 4rem;
+}
+
+.row {
+   height: 30vh;
+}
+
+a {
+   color: white;
+   text-decoration: none;
+}
+
+img {
+   width: 100%;
+}
