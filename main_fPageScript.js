@@ -1,5 +1,6 @@
 
     let goButton = document.getElementById("goButton");
+    
     goButton.addEventListener('click', function () {
         let user = document.getElementById("user").value;
         let bdate = document.getElementById("bdate").value;
@@ -13,8 +14,10 @@
         }
         
         localStorage.setItem('loginObject', JSON.stringify(loginObject));
-        window.location.href = "main_sPage.html";
+        window.location.href = "main_sPage.html";       
         });
 
+
+        
 
     
