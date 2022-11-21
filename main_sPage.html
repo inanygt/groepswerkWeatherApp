@@ -37,7 +37,7 @@
         <!-- Upper row -->
         <div class="row align-items-center">
           <div class="col text-center">
-            <div id="location">Genk</div>
+            <div id="location"></div>
           </div>
           <div class="col-3">
             <img
@@ -53,7 +53,11 @@
         <!-- Middle row -->
         <div class="row align-items-end">
           <div class="col-12 text-center">
-            <div id="welcome">Welcome ${name} ${birthyear}</div>
+            <div id="welcome">
+              Welcome
+              <span id="user"></span>
+              ${birthyear}
+            </div>
             <button class="btn btn-primary">
               <a href="main_fPage.html">refresh</a>
             </button>
@@ -63,7 +67,7 @@
         <div class="row align-items-center">
           <div class="col-4">
             Horoscoop <br />
-            geboortejaar
+            <span id="bYear"></span>
           </div>
           <div class="col-8">
             - Man who wants a pretty nurse, must be patient. -
@@ -89,5 +93,5 @@
     crossorigin="anonymous"
   ></script>
   <!-- Custom Script here -->
-  <script src="script.js"></script>
+  <script src="main_sPageScript.js"></script>
 </html>
