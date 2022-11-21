@@ -9,14 +9,12 @@ let weather = {
             + city + 
             "?unitGroup=metric&include=current&key=P9J7ZGZ9SBGSZQTDBMT86WNN3&contentType=json")
         .then((Response) => Response.json())
-        .then((data) => console.log(data));
-        console.log(city)
-    },
-    displayWeather: function(data) {
-        weather.innerHTML =`
-        location: $(data.location.name)
-        temperature: $(data.currentConditions.temp) °C
-        Current conditions: $(data.currentConditions.conditions)`;
+        .then((data) => {
+            console.log(data);
+            weather.innerHTML = `
+            location: $(data.location.name)
+            temperature: $(data.current.temperature) °C
+            current conditions: $(data.currentConditions.conditions)`;
+        
 
-    }
-  };
+    })}
