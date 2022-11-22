@@ -10,7 +10,7 @@ console.log(local);
 console.log(place);
 
 user.innerHTML = local.user;
-place.innerHTML = local.location;
+// place.innerHTML = local.location;
 
 birthYear = local.bdate.slice(0, 4)
 bYear.innerHTML = birthYear;
@@ -24,17 +24,27 @@ fetch(url)
 .then(response => response.json())
 .then(data => {
 console.log(data);
+city.innerHTML =`
+<p>${data.resolvedAddress}</p>`;
 weather.innerHTML =`
-<p>Location: ${data.resolvedAddress}</p>
 <p>Temperature: ${data.currentConditions.temp}°C</p>
-<p>Current conditions: ${data.currentConditions.conditions}</p>`;
+<p>Current conditions: ${data.currentConditions.conditions}</p>
+<p> ${data.currentConditions.icon}</p>`;
 }).catch(
    err => {
    alert("Wrong city name");
    console.log(err)
    });
    
-
+// if (data.currentConditions.conditions == snow) {
+//    let animation = document.getElementById("animation").src = "Images\snow.gif";
+// }
+// if (data.currentConditions.conditions == rain) {
+//    let animation = document.getElementById("animation").src = "Images\rain.gif";
+// }
+// if (data.currentConditions.conditions == party-cloudy-day) {
+//    let animation = document.getElementById("animation").src = "Images\partyCloudy.gif";
+// }
 
 
 
