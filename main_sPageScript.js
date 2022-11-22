@@ -4,11 +4,13 @@ let session = JSON.parse(sessionStorage.getItem('loginObject'));
 
 let user = document.getElementById("user");
 let bYear = document.getElementById("bYear");
-let place = document.getElementById("place");
+let city = document.getElementById("city");
 let age = document.getElementById("age");
+let temp = document.getElementById("temp");
 
 user.innerHTML = local.user;
-place.innerHTML = local.location;
+city.innerHTML = local.city;
+temp.innerHTML = local.temp;
 
 birthYear = local.bdate.slice(0, 4)
 bYear.innerHTML = birthYear;
