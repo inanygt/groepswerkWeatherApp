@@ -1,11 +1,13 @@
 let local = JSON.parse(localStorage.getItem('loginObject'));
-let session = JSON.parse(sessionStorage.getItem('loginObject'));
 
 
 let user = document.getElementById("user");
 let bYear = document.getElementById("bYear");
 let place = document.getElementById("place");
 let age = document.getElementById("age");
+
+console.log(local);
+console.log(place);
 
 user.innerHTML = local.user;
 place.innerHTML = local.location;
@@ -16,6 +18,24 @@ bYear.innerHTML = birthYear;
 const currentYear = new Date().getFullYear();
 let cAge = currentYear - local.bdate.slice(0, 4);
 age.innerHTML = cAge;
+
+let url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + local.location + "?unitGroup=metric&include=current&key=P9J7ZGZ9SBGSZQTDBMT86WNN3&contentType=json";
+fetch(url)
+.then(response => response.json())
+.then(data => {
+console.log(data);
+weather.innerHTML =`
+<p>Location: ${data.resolvedAddress}</p>
+<p>Temperature: ${data.currentConditions.temp}°C</p>
+<p>Current conditions: ${data.currentConditions.conditions}</p>`;
+}).catch(
+   err => {
+   alert("Wrong city name");
+   console.log(err)
+   });
+   
+
+
 
 
 // object zodiac
