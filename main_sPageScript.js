@@ -3,8 +3,9 @@ let local = JSON.parse(localStorage.getItem('loginObject'));
 
 let user = document.getElementById("user");
 let bYear = document.getElementById("bYear");
-let place = document.getElementById("place");
+let city = document.getElementById("city");
 let age = document.getElementById("age");
+let temp = document.getElementById("temp");
 
 console.log(local);
 console.log(place);
